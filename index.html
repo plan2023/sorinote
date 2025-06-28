@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoriNote - Emotional Diary App</title>
+  <title>SoriNote - An Emotional Diary to Record Your Feelings</title>
   <link rel="icon" href="images/icon.png" type="image/png">
   <style>
     body {
@@ -12,24 +12,30 @@
       background-color: #e0f7f7;
       color: #333;
     }
-
     header {
-      width: 100%;
-      height: auto;
+      background-color: #ffffff;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
     header img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      display: block;
+      width: 96px;
+      height: 96px;
     }
-
+    h1 {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      color: #007d7b;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
     .section {
       padding: 3rem 1rem;
       text-align: center;
     }
-
     .screenshots {
       display: flex;
       flex-wrap: wrap;
@@ -37,22 +43,18 @@
       gap: 1rem;
       margin-top: 2rem;
     }
-
     .screenshots img {
       width: 180px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-
     .screenshots img:hover {
       transform: scale(1.05);
     }
-
     .cta {
       margin-top: 2rem;
     }
-
     .cta a {
       display: inline-block;
       background-color: #009688;
@@ -63,11 +65,9 @@
       font-weight: bold;
       transition: background 0.3s;
     }
-
     .cta a:hover {
       background-color: #00796b;
     }
-
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -78,15 +78,14 @@
 </head>
 <body>
 
-  <!-- Top Banner -->
   <header>
-    <img src="images/banner.png" alt="SoriNote Banner">
+    <img src="images/icon.png" alt="SoriNote Icon">
+    <h1>Welcome to SoriNote 🎧</h1>
+    <p>Record and reflect on your emotions,<br>and discover your true self.</p>
   </header>
 
-  <!-- Main Content -->
   <section class="section">
-    <h2>📱 App Screenshots</h2>
-
+    <h2>📱 Preview of Main Screens</h2>
     <div class="screenshots">
       <img src="images/001.png" alt="Unlock Screen">
       <img src="images/002.png" alt="Calendar View">
