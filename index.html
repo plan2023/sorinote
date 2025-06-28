@@ -2,29 +2,109 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>소리노트 - 감정 기록 앱</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소리노트 - 감정을 기록하는 감성 다이어리</title>
+  <link rel="icon" href="images/icon.png" type="image/png">
   <style>
     body {
+      margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
+      background-color: #e0f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 40px;
-      background-color: #f9f9f9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    img {
-      max-width: 200px;
-      margin-bottom: 20px;
+    header img {
+      width: 96px;
+      height: 96px;
     }
-    a {
-      color: #007aff;
+    h1 {
+      margin-top: 1rem;
+      font-size: 1.8rem;
+      color: #007d7b;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+    .section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .screenshots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .screenshots img {
+      width: 180px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+    .cta {
+      margin-top: 2rem;
+    }
+    .cta a {
+      display: inline-block;
+      background-color: #009688;
+      color: #fff;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      transition: background 0.3s;
+    }
+    .cta a:hover {
+      background-color: #00796b;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <img src="https://plan2023.github.io/sorinote/images/logo.png" alt="소리노트 로고">
-  <h1>소리노트에 오신 것을 환영합니다 🎧</h1>
-  <p>소리노트는 감정을 기록하고<br>통계를 통해 마음을 살펴볼 수 있는 감정일기 앱입니다.</p>
-  <p><a href="https://apps.apple.com/kr/app/id6747738424">📱 iOS 앱스토어에서 보기</a></p>
+
+  <header>
+    <img src="images/icon.png" alt="소리노트 아이콘">
+    <h1>소리노트에 오신 것을 환영합니다 🎧</h1>
+    <p>감정을 기록하고 돌아보며,<br>진짜 나를 발견해보세요.</p>
+  </header>
+
+  <section class="section">
+    <h2>📱 주요 화면 미리보기</h2>
+    <div class="screenshots">
+      <img src="images/001.png" alt="Unlock Screen">
+      <img src="images/002.png" alt="Calendar View">
+      <img src="images/003.png" alt="Diary Detail">
+      <img src="images/004.png" alt="Voice Playback">
+      <img src="images/005.png" alt="Emotion Selection">
+      <img src="images/006.png" alt="Voice Recording">
+      <img src="images/007.png" alt="Emotion Statistics">
+      <img src="images/008.png" alt="Settings">
+    </div>
+
+    <div class="cta">
+      <a href="https://apps.apple.com/kr/app/id6747738424">iOS 앱스토어에서 다운로드</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 SoriNote. All rights reserved.
+  </footer>
+
 </body>
 </html>
