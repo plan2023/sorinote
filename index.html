@@ -151,10 +151,6 @@
         el.style.display = (el.tagName === 'SPAN' || el.tagName === 'A') ? 'inline' : 'block';
       });
     }
-  } else {
-      koElements.forEach(el => el.style.display = 'none');
-      enElements.forEach(el => el.style.display = '');
-    }
   }
   window.addEventListener('DOMContentLoaded', () => toggleLanguage('en'));
 </script>
