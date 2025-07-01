@@ -142,8 +142,16 @@
     const koElements = document.querySelectorAll('[lang="ko"]');
     if (lang === 'ko') {
       enElements.forEach(el => el.style.display = 'none');
-      koElements.forEach(el => el.style.display = '');
+      koElements.forEach(el => {
+        el.style.display = (el.tagName === 'SPAN' || el.tagName === 'A') ? 'inline' : 'block';
+      });
     } else {
+      koElements.forEach(el => el.style.display = 'none');
+      enElements.forEach(el => {
+        el.style.display = (el.tagName === 'SPAN' || el.tagName === 'A') ? 'inline' : 'block';
+      });
+    }
+  } else {
       koElements.forEach(el => el.style.display = 'none');
       enElements.forEach(el => el.style.display = '');
     }
