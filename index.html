@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -136,35 +136,14 @@
       100% { opacity: 1; transform: translateY(0); }
     }
   </style>
-  <script>
-  function toggleLanguage(lang) {
-    const enElements = document.querySelectorAll('[lang="en"]');
-    const koElements = document.querySelectorAll('[lang="ko"]');
-    if (lang === 'ko') {
-      enElements.forEach(el => el.style.display = 'none');
-      koElements.forEach(el => {
-        el.style.display = (el.tagName === 'SPAN' || el.tagName === 'A') ? 'inline' : 'block';
-      });
-    } else {
-      koElements.forEach(el => el.style.display = 'none');
-      enElements.forEach(el => {
-        el.style.display = (el.tagName === 'SPAN' || el.tagName === 'A') ? 'inline' : 'block';
-      });
-    }
-  }
-  window.addEventListener('DOMContentLoaded', () => toggleLanguage('en'));
-</script>
+  
 </head>
 <body>
   <header>
-    <div class="lang-toggle">
-      <button onclick="toggleLanguage('en')">EN</button>
-      <button onclick="toggleLanguage('ko')">KR</button>
-    </div>
+    
     <img src="images/icon.png" alt="SoriNote Logo">
     <h1 lang="en">SoriNote</h1>
     <p lang="en">Emotional Diary to Capture Your Feelings</p>
-    <h1 lang="ko" style="display:none">소리노트</h1>
     <p lang="ko" style="display:none">감정을 기록하는 감성 다이어리</p>
   </header>
 
