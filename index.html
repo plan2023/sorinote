@@ -3,38 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoriNote - An Emotional Diary to Record Your Feelings</title>
+  <title>SoriNote - Your Emotional Diary</title>
   <link rel="icon" href="images/icon.png" type="image/png">
   <style>
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #e0f7f7;
+      background-color: #f2fdfd;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
-      background-color: #ffffff;
-      padding: 2rem 1rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 3rem 1rem 2rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-toggle button {
+      background: #e0f7f7;
+      border: none;
+      font-weight: bold;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      border-radius: 6px;
     }
     header img {
-      width: 96px;
-      height: 96px;
+      width: 100px;
+      height: 100px;
+      animation: fadeIn 1.2s ease;
     }
-    h1 {
-      margin-top: 1rem;
-      font-size: 1.8rem;
-      color: #007d7b;
+    header h1 {
+      margin: 1rem 0 0.5rem;
+      color: #009688;
+      font-size: 2rem;
+      animation: fadeInDown 1s ease;
     }
-    p {
-      font-size: 1.1rem;
+    header p {
+      font-size: 1.2rem;
       color: #555;
-      line-height: 1.6;
+      animation: fadeInUp 1s ease;
     }
-    .section {
+    section {
       padding: 3rem 1rem;
-      text-align: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .feature h3 {
+      color: #007d7b;
     }
     .screenshots {
       display: flex;
@@ -42,23 +76,19 @@
       justify-content: center;
       gap: 1rem;
       margin-top: 2rem;
+      animation: fadeInUp 1s ease;
     }
     .screenshots img {
       width: 180px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
     }
-    .screenshots img:hover {
-      transform: scale(1.05);
-    }
-
     .cta {
-      margin-top: 2.5rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
     }
     .cta a {
       display: inline-flex;
@@ -82,51 +112,94 @@
       width: 24px;
       height: 24px;
     }
-
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #999;
     }
+    footer a {
+      color: #999;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
+  <script>
+    function toggleLanguage(lang) {
+      alert('Language toggle placeholder: switch to ' + lang);
+      // 다국어 구현 시 해당 언어 리소스를 로드하거나, 페이지 리로딩 방식 활용 가능
+    }
+  </script>
 </head>
 <body>
-
   <header>
-    <img src="images/icon.png" alt="SoriNote Icon">
-    <h1>Welcome to SoriNote 🎧</h1>
-    <p>Record and reflect on your emotions,<br>and discover your true self.</p>
+    <div class="lang-toggle">
+      <button onclick="toggleLanguage('en')">EN</button>
+      <button onclick="toggleLanguage('ko')">KR</button>
+    </div>
+    <img src="images/icon.png" alt="SoriNote Logo">
+    <h1>SoriNote</h1>
+    <p>Emotional Diary to Capture Your Feelings</p>
   </header>
 
-  <section class="section">
-    <h2>📱 Preview of Main Screens</h2>
+  <section>
+    <h2 style="text-align:center">📌 Key Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>📅 Emotion Calendar</h3>
+        <p>Visualize how you've felt over time through an intuitive calendar view.</p>
+      </div>
+      <div class="feature">
+        <h3>🎤 Voice Recording</h3>
+        <p>Record your emotions and thoughts with just one tap.</p>
+      </div>
+      <div class="feature">
+        <h3>📈 Emotion Statistics</h3>
+        <p>Track patterns and emotional trends with easy-to-read charts.</p>
+      </div>
+      <div class="feature">
+        <h3>🌟 Premium Perks</h3>
+        <p>Ad-free, Google Drive backup, and extra emotion emojis for premium users.</p>
+      </div>
+    </div>
+
+    <h2 style="text-align:center; margin-top:4rem;">📱 App Screenshots</h2>
     <div class="screenshots">
-      <img src="images/001.png" alt="Unlock Screen">
-      <img src="images/002.png" alt="Calendar View">
-      <img src="images/003.png" alt="Diary Detail">
-      <img src="images/004.png" alt="Voice Playback">
-      <img src="images/005.png" alt="Emotion Selection">
-      <img src="images/006.png" alt="Voice Recording">
-      <img src="images/007.png" alt="Emotion Statistics">
-      <img src="images/008.png" alt="Settings">
+      <img src="images/001.png" alt="Screen 1">
+      <img src="images/002.png" alt="Screen 2">
+      <img src="images/003.png" alt="Screen 3">
+      <img src="images/004.png" alt="Screen 4">
     </div>
 
     <div class="cta">
       <a href="https://apps.apple.com/kr/app/id6747738424">
-        <img src="images/apple-icon.png" alt="iOS">
-        Download on the App Store
+        <img src="images/apple-icon.png" alt="Apple">
+        App Store
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.t8130.sori_note">
-        <img src="images/google-play-icon.png" alt="Android">
-        Get it on Google Play
+        <img src="images/google-play-icon.png" alt="Google Play">
+        Google Play
       </a>
     </div>
   </section>
 
   <footer>
-    © 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.
+    © 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.<br>
+    <a href="policy/privacy.html">Privacy Policy</a> |
+    <a href="policy/terms.html">Terms of Service</a> |
+    <a href="mailto:contact@sorinote.app">Contact</a>
   </footer>
-
 </body>
 </html>
