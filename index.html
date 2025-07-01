@@ -137,11 +137,19 @@
     }
   </style>
   <script>
-    function toggleLanguage(lang) {
-      alert('Language toggle placeholder: switch to ' + lang);
-      // 다국어 구현 시 해당 언어 리소스를 로드하거나, 페이지 리로딩 방식 활용 가능
+  function toggleLanguage(lang) {
+    const enElements = document.querySelectorAll('[lang="en"]');
+    const koElements = document.querySelectorAll('[lang="ko"]');
+    if (lang === 'ko') {
+      enElements.forEach(el => el.style.display = 'none');
+      koElements.forEach(el => el.style.display = '');
+    } else {
+      koElements.forEach(el => el.style.display = 'none');
+      enElements.forEach(el => el.style.display = '');
     }
-  </script>
+  }
+  window.addEventListener('DOMContentLoaded', () => toggleLanguage('en'));
+</script>
 </head>
 <body>
   <header>
@@ -150,40 +158,56 @@
       <button onclick="toggleLanguage('ko')">KR</button>
     </div>
     <img src="images/icon.png" alt="SoriNote Logo">
-    <h1>SoriNote</h1>
-    <p>Emotional Diary to Capture Your Feelings</p>
+    <h1 lang="en">SoriNote</h1>
+    <p lang="en">Emotional Diary to Capture Your Feelings</p>
+    <h1 lang="ko" style="display:none">소리노트</h1>
+    <p lang="ko" style="display:none">감정을 기록하는 감성 다이어리</p>
   </header>
 
   <section>
-    <h2 style="text-align:center">📌 Key Features</h2>
+    <h2 style="text-align:center" lang="en">📌 Key Features</h2>
+    <h2 style="text-align:center; display:none" lang="ko">📌 주요 기능</h2>
     <div class="features">
       <div class="feature">
-        <h3>💡 Idea Notes</h3>
-        <p>Capture your spontaneous thoughts and creative ideas anytime, so you won't forget them later.</p>
+        <h3 lang="en">💡 Idea Notes</h3>
+        <p lang="en">Capture your spontaneous thoughts and creative ideas anytime, so you won't forget them later.</p>
+        <h3 lang="ko" style="display:none">💡 아이디어 메모</h3>
+        <p lang="ko" style="display:none">언제든지 떠오르는 생각과 아이디어를 기록하고 나중에 다시 확인하세요.</p>
       </div>
       <div class="feature">
-        <h3>📌 Important Moments</h3>
-        <p>Log significant events or important moments to revisit and reflect on them whenever you need.</p>
+        <h3 lang="en">📌 Important Moments</h3>
+        <p lang="en">Log significant events or important moments to revisit and reflect on them whenever you need.</p>
+        <h3 lang="ko" style="display:none">📌 중요한 순간</h3>
+        <p lang="ko" style="display:none">중요한 일이나 순간을 기록하여 나중에 돌아볼 수 있습니다.</p>
       </div>
       <div class="feature">
-        <h3>📅 Emotion Calendar</h3>
-        <p>Visualize how you've felt over time through an intuitive calendar view.</p>
+        <h3 lang="en">📅 Emotion Calendar</h3>
+        <p lang="en">Visualize how you've felt over time through an intuitive calendar view.</p>
+        <h3 lang="ko" style="display:none">📅 감정 캘린더</h3>
+        <p lang="ko" style="display:none">직관적인 캘린더로 시간에 따라 변화한 감정을 확인할 수 있습니다.</p>
       </div>
       <div class="feature">
-        <h3>🎤 Voice Recording</h3>
-        <p>Record your emotions and thoughts with just one tap.</p>
+        <h3 lang="en">🎤 Voice Recording</h3>
+        <p lang="en">Record your emotions and thoughts with just one tap.</p>
+        <h3 lang="ko" style="display:none">🎤 음성 녹음</h3>
+        <p lang="ko" style="display:none">한 번의 탭으로 감정과 생각을 목소리로 기록하세요.</p>
       </div>
       <div class="feature">
-        <h3>📈 Emotion Statistics</h3>
-        <p>Track patterns and emotional trends with easy-to-read charts.</p>
+        <h3 lang="en">📈 Emotion Statistics</h3>
+        <p lang="en">Track patterns and emotional trends with easy-to-read charts.</p>
+        <h3 lang="ko" style="display:none">📈 감정 통계</h3>
+        <p lang="ko" style="display:none">간편한 차트로 감정 변화와 패턴을 확인해보세요.</p>
       </div>
       <div class="feature">
-        <h3>🌟 Premium Perks</h3>
-        <p>Ad-free, Google Drive backup, and extra emotion emojis for premium users.</p>
+        <h3 lang="en">🌟 Premium Perks</h3>
+        <p lang="en">Ad-free, Google Drive backup, and extra emotion emojis for premium users.</p>
+        <h3 lang="ko" style="display:none">🌟 프리미엄 혜택</h3>
+        <p lang="ko" style="display:none">광고 없이 사용하고, 구글 드라이브 백업 및 추가 감정 이모지를 활용해보세요.</p>
       </div>
     </div>
 
-    <h2 style="text-align:center; margin-top:4rem;">📱 App Screenshots</h2>
+    <h2 style="text-align:center; margin-top:4rem;" lang="en">📱 App Screenshots</h2>
+    <h2 style="text-align:center; margin-top:4rem; display:none;" lang="ko">📱 주요 화면 미리보기</h2>
     <div class="screenshots">
       <img src="images/001.png" alt="Unlock Screen">
       <img src="images/002.png" alt="Calendar View">
@@ -198,20 +222,28 @@
     <div class="cta">
       <a href="https://apps.apple.com/kr/app/id6747738424">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="width: 24px; height: 24px;">
-        App Store
+        <span lang="en">App Store</span>
+        <span lang="ko" style="display:none">앱스토어</span>
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.t8130.sori_note">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="width: 24px; height: 24px;">
-        Google Play
+        <span lang="en">Google Play</span>
+        <span lang="ko" style="display:none">구글 플레이</span>
       </a>
     </div>
   </section>
 
   <footer>
-    © 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.<br>
-    <a href="https://sites.google.com/d/1vpO_27zXTpEsh7iv-9O4cUkORynYlN5O/p/1jimxczFrOMma6N1MFhXWgIIAdxvxiLZW/edit" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |
-    <!-- <a href="https://sites.google.com/view/sorinote-terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> | -->
-    <a href="mailto:pdman21c@gmail.com">Contact</a>
+    <p lang="en">
+      © 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.<br>
+      <a href="https://sites.google.com/d/1vpO_27zXTpEsh7iv-9O4cUkORynYlN5O/p/1jimxczFrOMma6N1MFhXWgIIAdxvxiLZW/edit" target="_blank" rel="noopener noreferrer">Privacy Policy</a> |
+      <a href="mailto:pdman21c@gmail.com">Contact</a>
+    </p>
+    <p lang="ko" style="display:none">
+      © 2025 박혁서. 모든 권리 보유. “소리노트”는 등록된 상표입니다.<br>
+      <a href="https://sites.google.com/d/1vpO_27zXTpEsh7iv-9O4cUkORynYlN5O/p/1jimxczFrOMma6N1MFhXWgIIAdxvxiLZW/edit" target="_blank" rel="noopener noreferrer">개인정보처리방침</a> |
+      <a href="mailto:pdman21c@gmail.com">문의하기</a>
+    </p>
   </footer>
 </body>
 </html>
