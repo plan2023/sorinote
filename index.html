@@ -59,65 +59,6 @@
       max-width: 960px;
       margin: 0 auto;
     }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      animation: fadeIn 1s ease;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .feature h3 {
-      color: #007d7b;
-      margin-top: 0;
-    }
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      animation: fadeInUp 1s ease;
-    }
-    .screenshots img {
-      width: 180px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .cta {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-    }
-    .cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background-color: #009688;
-      color: #fff;
-      padding: 0.9rem 1.6rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background 0.3s, transform 0.2s;
-    }
-    .cta a:hover {
-      background-color: #00796b;
-      transform: translateY(-2px);
-    }
-    .cta a img {
-      width: 24px;
-      height: 24px;
-    }
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -144,6 +85,54 @@
   </style>
 </head>
 <body>
-<!-- 나머지 본문 유지됨 -->
+  <header>
+    <div class="lang-toggle">
+      <button>KR</button>
+    </div>
+    <img src="images/icon.png" alt="SoriNote Logo">
+    <h1 lang="en">SoriNote</h1>
+    <p lang="en">From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.</p>
+    <p lang="ko" style="display:none">감정, 아이디어, 소중한 순간까지 — 당신의 이야기를 담는 감성 다이어리, 소리노트</p>
+  </header>
+
+  <section>
+    <h2 style="text-align:center" lang="en">📌 Key Features</h2>
+    <h2 style="text-align:center; display:none" lang="ko">📌 주요 기능</h2>
+    <p style="text-align:center; max-width: 700px; margin: 0 auto;">
+      <span lang="en">Capture and reflect on your thoughts, emotions, and important memories — all in one beautifully designed app.</span>
+      <span lang="ko" style="display:none">감정, 아이디어, 중요한 순간을 편하게 기록하고 돌아볼 수 있는 감성적인 일기 앱입니다.</span>
+    </p>
+  </section>
+
+  <footer>
+    <p lang="en">
+      © 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.<br />
+      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="mailto:pdman21c@gmail.com">Contact</a>
+    </p>
+    <p lang="ko" style="display:none">
+      © 2025 박혁서. 모든 권리 보유. “소리노트”는 등록된 상표입니다.<br />
+      <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">개인정보처리방침</a>
+      <a href="mailto:pdman21c@gmail.com">문의하기</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.querySelector('.lang-toggle button');
+      let isKorean = false;
+
+      toggleButton.addEventListener('click', () => {
+        isKorean = !isKorean;
+        document.querySelectorAll('[lang="en"]').forEach(el => {
+          el.style.display = isKorean ? 'none' : '';
+        });
+        document.querySelectorAll('[lang="ko"]').forEach(el => {
+          el.style.display = isKorean ? '' : 'none';
+        });
+        toggleButton.textContent = isKorean ? 'EN' : 'KR';
+      });
+    });
+  </script>
 </body>
 </html>
