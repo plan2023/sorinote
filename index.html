@@ -15,8 +15,8 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('images/site_background.png'); /* ✅ 두 사람이 앱 조작하는 이미지 */
-      background-size: 60% auto;    /* ✅ 이미지 작게 줄임 */
+      background-image: url('images/site_background.png');
+      background-size: 60% auto;
       background-repeat: no-repeat;
       background-position: center top;
       background-attachment: fixed;
@@ -27,7 +27,6 @@
       z-index: 0;
     }
 
-    /* ✅ 배경 흐림 효과용 흰색 오버레이 */
     body::before {
       content: "";
       position: fixed;
@@ -134,14 +133,15 @@
     }
 
     footer {
-      text-align: center;
+      background-color: rgba(255, 255, 255, 0.85); /* ✅ 배경 추가 */
       padding: 2rem 1rem;
+      text-align: center;
       font-size: 0.9rem;
-      color: #999;
+      color: #333; /* ✅ 글자색 진하게 */
     }
 
     footer a {
-      color: #999;
+      color: #333;
       text-decoration: underline;
       margin: 0 0.5rem;
     }
