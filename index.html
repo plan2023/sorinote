@@ -15,29 +15,22 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('images/site_background.png'); /* ✅ 연한 배경 이미지 적용 */
-      background-size: cover;
-      background-position: center center;
+      background-image: url('images/site_background.png'); /* ✅ 이미지 경로 */
+      background-size: 80% auto; /* ✅ 이미지 크기 줄임 */
       background-repeat: no-repeat;
+      background-position: center top;
       background-attachment: fixed;
+      background-color: #f2fdfd;
       color: #333;
       scroll-behavior: smooth;
       position: relative;
       z-index: 0;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(255, 255, 255, 0.6); /* ✅ 밝기 조절용 오버레이 */
-      z-index: -1;
-    }
-
     header {
       text-align: center;
       padding: 3rem 1rem 2rem;
-      background-color: #ffffffbb; /* 약간 반투명 */
+      background-color: #ffffffbb;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
 
