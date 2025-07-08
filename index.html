@@ -26,7 +26,6 @@
       position: relative;
       z-index: 0;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -37,24 +36,21 @@
       background-color: rgba(255, 255, 255, 0.5);
       z-index: -1;
     }
-
     header {
       text-align: center;
       padding: 3rem 1rem 2rem;
       background-color: #ffffffbb;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
-
     header img {
       width: 100px;
       height: 100px;
       animation: fadeIn 1.2s ease;
     }
-
     header h1, header p {
       animation: fadeInDown 1s ease;
     }
-
     .cta {
       display: flex;
       justify-content: center;
@@ -62,7 +58,6 @@
       margin-top: 1.5rem;
       flex-wrap: wrap;
     }
-
     .cta a {
       background-color: #009688;
       color: #fff;
@@ -74,22 +69,18 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       transition: background 0.3s, transform 0.2s;
     }
-
     .cta a:hover {
       background-color: #00796b;
       transform: translateY(-2px);
     }
-
     section {
       padding: 3rem 1rem;
       max-width: 960px;
       margin: 0 auto;
     }
-
     h2 {
       text-align: center;
     }
-
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -97,7 +88,6 @@
       margin-top: 2rem;
       animation: fadeIn 1s ease;
     }
-
     .feature {
       background: #fff;
       border-radius: 12px;
@@ -105,18 +95,15 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
     }
-
     .feature:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
-
     .feature h3 {
       color: #007d7b;
       font-size: 1.2rem;
       margin-top: 0;
     }
-
     .screenshots {
       display: flex;
       flex-wrap: wrap;
@@ -125,92 +112,98 @@
       margin-top: 2rem;
       animation: fadeInUp 1s ease;
     }
-
     .screenshots img {
       width: 180px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     footer {
-      background-color: rgba(255, 255, 255, 0.85); /* ✅ 배경 추가 */
+      background-color: rgba(255, 255, 255, 0.85);
       padding: 2rem 1rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #333; /* ✅ 글자색 진하게 */
+      color: #333;
     }
-
     footer a {
       color: #333;
       text-decoration: underline;
       margin: 0 0.5rem;
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     .group-title {
       margin-top: 3rem;
       text-align: center;
       color: #007d7b;
       font-size: 1.2rem;
     }
+    #lang-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
+    <button id="lang-toggle">KOR</button>
     <img src="images/icon.png" alt="SoriNote Logo">
-    <h1>SoriNote</h1>
-    <p><strong>Private. Emotional. Yours only.</strong><br>From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.</p>
+    <h1 class="i18n" data-ko="소리노트">SoriNote</h1>
+    <p class="i18n" data-ko="감정, 아이디어, 소중한 순간을 기록하는 당신만의 감성 일기장입니다.">From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.</p>
     <div class="cta">
-      <a href="https://apps.apple.com/kr/app/id6747738424">Download on App Store</a>
-      <a href="https://play.google.com/store/apps/details?id=com.t8130.sori_note">Get it on Google Play</a>
+      <a class="i18n" data-ko="앱스토어에서 받기" href="https://apps.apple.com/kr/app/id6747738424">Download on App Store</a>
+      <a class="i18n" data-ko="플레이스토어에서 받기" href="https://play.google.com/store/apps/details?id=com.t8130.sori_note">Get it on Google Play</a>
     </div>
   </header>
 
   <section>
-    <h2>📌 Key Features</h2>
+    <h2 class="i18n" data-ko="📌 주요 기능">📌 Key Features</h2>
 
-    <h4 class="group-title">✨ Capture & Reflect</h4>
+    <h4 class="group-title i18n" data-ko="✨ 감정 기록 및 되돌아보기">✨ Capture & Reflect</h4>
     <div class="features">
-      <div class="feature"><h3>💡 Idea Notes</h3><p>Capture your spontaneous thoughts and creative ideas anytime.</p></div>
-      <div class="feature"><h3>📌 Important Moments</h3><p>Log significant events or moments to revisit later.</p></div>
-      <div class="feature"><h3>📅 Emotion Calendar</h3><p>Visualize how you’ve felt over time in a calendar view.</p></div>
-      <div class="feature"><h3>🎤 Voice Recording</h3><p>Record your thoughts and emotions with a tap.</p></div>
-      <div class="feature"><h3>⏰ Reminder Notifications</h3><p>Set daily reminders to keep your diary habit alive.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="💡 아이디어 노트">💡 Idea Notes</h3><p class="i18n" data-ko="언제 어디서든 아이디어를 자유롭게 기록하세요.">Capture your spontaneous thoughts and creative ideas anytime.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="📌 중요한 순간">📌 Important Moments</h3><p class="i18n" data-ko="기억하고 싶은 순간을 간편하게 남겨보세요.">Log significant events or moments to revisit later.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="📅 감정 캘린더">📅 Emotion Calendar</h3><p class="i18n" data-ko="시간 흐름에 따른 감정 변화를 시각화해보세요.">Visualize how you’ve felt over time in a calendar view.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="🎤 음성 녹음">🎤 Voice Recording</h3><p class="i18n" data-ko="음성으로 감정을 빠르게 기록할 수 있어요.">Record your thoughts and emotions with a tap.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="⏰ 알림 설정">⏰ Reminder Notifications</h3><p class="i18n" data-ko="일기 습관을 위한 알림을 설정해보세요.">Set daily reminders to keep your diary habit alive.</p></div>
     </div>
 
-    <h4 class="group-title">📁 Organize & Analyze</h4>
+    <h4 class="group-title i18n" data-ko="📁 정리 및 분석">📁 Organize & Analyze</h4>
     <div class="features">
-      <div class="feature"><h3>🏷️ Tag Folder Collection</h3><p>Group notes by custom tags like folders for easy browsing.</p></div>
-      <div class="feature"><h3>📈 Emotion & Tag Statistics</h3><p>Track emotional and tag-based trends with charts.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="🏷️ 태그 폴더">🏷️ Tag Folder Collection</h3><p class="i18n" data-ko="노트를 폴더처럼 태그별로 묶어 정리하세요.">Group notes by custom tags like folders for easy browsing.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="📈 감정 및 태그 통계">📈 Emotion & Tag Statistics</h3><p class="i18n" data-ko="감정과 태그의 통계를 한눈에 확인해보세요.">Track emotional and tag-based trends with charts.</p></div>
     </div>
 
-    <h4 class="group-title">🔐 Backup & Export</h4>
+    <h4 class="group-title i18n" data-ko="🔐 백업 및 내보내기">🔐 Backup & Export</h4>
     <div class="features">
-      <div class="feature"><h3>📤 Export & Share</h3><p>Share your diary or export it as a CSV for backup.</p></div>
-      <div class="feature"><h3>🔒 Secure Backup & Restore</h3><p>All data is encrypted and stored in your Google Drive securely.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="📤 내보내기 및 공유">📤 Export & Share</h3><p class="i18n" data-ko="노트를 CSV로 내보내고 공유하세요.">Share your diary or export it as a CSV for backup.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="🔒 보안 백업">🔒 Secure Backup & Restore</h3><p class="i18n" data-ko="Google Drive에 안전하게 암호화 저장됩니다.">All data is encrypted and stored in your Google Drive securely.</p></div>
     </div>
 
-    <h4 class="group-title">🌟 Premium & Rewards</h4>
+    <h4 class="group-title i18n" data-ko="🌟 프리미엄과 보상">🌟 Premium & Rewards</h4>
     <div class="features">
-      <div class="feature"><h3>🎁 Badge Rewards</h3><p>Earn badges and unlock new background images as gifts.</p></div>
-      <div class="feature"><h3>🌟 Premium Perks</h3><p>No ads, backup to Google Drive, and extra emotion emojis.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="🎁 배지 보상">🎁 Badge Rewards</h3><p class="i18n" data-ko="배지를 획득하고 배경 이미지를 해금하세요.">Earn badges and unlock new background images as gifts.</p></div>
+      <div class="feature"><h3 class="i18n" data-ko="🌟 프리미엄 혜택">🌟 Premium Perks</h3><p class="i18n" data-ko="광고 제거, 백업 기능, 추가 이모지 제공.">No ads, backup to Google Drive, and extra emotion emojis.</p></div>
     </div>
 
-    <h2 style="margin-top:4rem;">📱 App Screenshots</h2>
+    <h2 class="i18n" data-ko="📱 앱 스크린샷">📱 App Screenshots</h2>
     <div class="screenshots">
       <img src="images/001.jpeg" alt="Home Screen">
       <img src="images/002.jpeg" alt="Diary Detail">
@@ -223,20 +216,33 @@
       <img src="images/009.jpeg" alt="Emotion Statistics">
       <img src="images/010.jpeg" alt="Badge Overview">
     </div>
-
-    <div class="cta" style="margin-top: 2rem;">
-      <a href="https://apps.apple.com/kr/app/id6747738424">Download on App Store</a>
-      <a href="https://play.google.com/store/apps/details?id=com.t8130.sori_note">Get it on Google Play</a>
-    </div>
   </section>
 
   <footer>
+    <p class="i18n" data-ko="© 2025 Hyeokseo Bak. 모든 권리 보유. 'SoriNote'는 등록 상표입니다.">© 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.</p>
     <p>
-      &copy; 2025 Hyeokseo Bak. All rights reserved. “SoriNote” is a registered trademark.<br />
-      <a href="privacy/index.html">Privacy Policy</a> ·
-      <a href="terms/index.html">Terms</a> ·
-      <a href="mailto:pdman21c@gmail.com">Contact</a>
+      <a href="privacy/index.html" class="i18n" data-ko="개인정보처리방침">Privacy Policy</a> ·
+      <a href="terms/index.html" class="i18n" data-ko="이용약관">Terms</a> ·
+      <a href="mailto:pdman21c@gmail.com" class="i18n" data-ko="문의하기">Contact</a>
     </p>
   </footer>
+
+  <script>
+    let currentLang = 'en';
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'ko' : 'en';
+      document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'KOR' : 'ENG';
+      document.querySelectorAll('.i18n').forEach(el => {
+        const koText = el.getAttribute('data-ko');
+        const enText = el.getAttribute('data-en') || el.textContent;
+        if (currentLang === 'ko' && koText) {
+          el.setAttribute('data-en', enText);
+          el.textContent = koText;
+        } else if (currentLang === 'en' && el.hasAttribute('data-en')) {
+          el.textContent = el.getAttribute('data-en');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
