@@ -15,24 +15,42 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f2fdfd;
+      background-image: url('images/site_background.png'); /* ✅ 연한 배경 이미지 적용 */
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       color: #333;
       scroll-behavior: smooth;
+      position: relative;
+      z-index: 0;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.6); /* ✅ 밝기 조절용 오버레이 */
+      z-index: -1;
+    }
+
     header {
       text-align: center;
       padding: 3rem 1rem 2rem;
-      background-color: #ffffff;
+      background-color: #ffffffbb; /* 약간 반투명 */
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     }
+
     header img {
       width: 100px;
       height: 100px;
       animation: fadeIn 1.2s ease;
     }
+
     header h1, header p {
       animation: fadeInDown 1s ease;
     }
+
     .cta {
       display: flex;
       justify-content: center;
@@ -40,6 +58,7 @@
       margin-top: 1.5rem;
       flex-wrap: wrap;
     }
+
     .cta a {
       background-color: #009688;
       color: #fff;
@@ -51,18 +70,22 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       transition: background 0.3s, transform 0.2s;
     }
+
     .cta a:hover {
       background-color: #00796b;
       transform: translateY(-2px);
     }
+
     section {
       padding: 3rem 1rem;
       max-width: 960px;
       margin: 0 auto;
     }
+
     h2 {
       text-align: center;
     }
+
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -70,6 +93,7 @@
       margin-top: 2rem;
       animation: fadeIn 1s ease;
     }
+
     .feature {
       background: #fff;
       border-radius: 12px;
@@ -77,15 +101,18 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
     }
+
     .feature:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
+
     .feature h3 {
       color: #007d7b;
       font-size: 1.2rem;
       margin-top: 0;
     }
+
     .screenshots {
       display: flex;
       flex-wrap: wrap;
@@ -94,34 +121,41 @@
       margin-top: 2rem;
       animation: fadeInUp 1s ease;
     }
+
     .screenshots img {
       width: 180px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #999;
     }
+
     footer a {
       color: #999;
       text-decoration: underline;
       margin: 0 0.5rem;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
+
     @keyframes fadeInDown {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     .group-title {
       margin-top: 3rem;
       text-align: center;
@@ -146,62 +180,29 @@
 
     <h4 class="group-title">✨ Capture & Reflect</h4>
     <div class="features">
-      <div class="feature">
-        <h3>💡 Idea Notes</h3>
-        <p>Capture your spontaneous thoughts and creative ideas anytime, so you won't forget them later.</p>
-      </div>
-      <div class="feature">
-        <h3>📌 Important Moments</h3>
-        <p>Log significant events or important moments to revisit and reflect on them whenever you need.</p>
-      </div>
-      <div class="feature">
-        <h3>📅 Emotion Calendar</h3>
-        <p>Visualize how you've felt over time through an intuitive calendar view.</p>
-      </div>
-      <div class="feature">
-        <h3>🎤 Voice Recording</h3>
-        <p>Record your emotions and thoughts with just one tap.</p>
-      </div>
-      <div class="feature">
-        <h3>⏰ Reminder Notifications</h3>
-        <p>Set daily reminders to record your emotions and thoughts consistently.</p>
-      </div>
+      <div class="feature"><h3>💡 Idea Notes</h3><p>Capture your spontaneous thoughts and creative ideas anytime.</p></div>
+      <div class="feature"><h3>📌 Important Moments</h3><p>Log significant events or moments to revisit later.</p></div>
+      <div class="feature"><h3>📅 Emotion Calendar</h3><p>Visualize how you’ve felt over time in a calendar view.</p></div>
+      <div class="feature"><h3>🎤 Voice Recording</h3><p>Record your thoughts and emotions with a tap.</p></div>
+      <div class="feature"><h3>⏰ Reminder Notifications</h3><p>Set daily reminders to keep your diary habit alive.</p></div>
     </div>
 
     <h4 class="group-title">📁 Organize & Analyze</h4>
     <div class="features">
-      <div class="feature">
-        <h3>🏷️ Tag Folder Collection</h3>
-        <p>Organize your notes by tags like folders. Easily browse and manage entries grouped by your custom categories.</p>
-      </div>
-      <div class="feature">
-        <h3>📈 Emotion & Tag Statistics</h3>
-        <p>Track emotional patterns and tag-based trends with easy-to-read charts for deeper insights.</p>
-      </div>
+      <div class="feature"><h3>🏷️ Tag Folder Collection</h3><p>Group notes by custom tags like folders for easy browsing.</p></div>
+      <div class="feature"><h3>📈 Emotion & Tag Statistics</h3><p>Track emotional and tag-based trends with charts.</p></div>
     </div>
 
     <h4 class="group-title">🔐 Backup & Export</h4>
     <div class="features">
-      <div class="feature">
-        <h3>📤 Export & Share</h3>
-        <p>Easily share your diary entries or export them all as a CSV file for backup or personal use.</p>
-      </div>
-      <div class="feature">
-        <h3>🔒 Secure Backup & Restore</h3>
-        <p>All backups and restorations are safely encrypted and stored on your personal Google Drive. Your data remains secure even on lost or changed devices.</p>
-      </div>
+      <div class="feature"><h3>📤 Export & Share</h3><p>Share your diary or export it as a CSV for backup.</p></div>
+      <div class="feature"><h3>🔒 Secure Backup & Restore</h3><p>All data is encrypted and stored in your Google Drive securely.</p></div>
     </div>
 
     <h4 class="group-title">🌟 Premium & Rewards</h4>
     <div class="features">
-      <div class="feature">
-        <h3>🎁 Badge Rewards</h3>
-        <p>Earn badges through your journey and unlock beautiful background images as special gifts.</p>
-      </div>
-      <div class="feature">
-        <h3>🌟 Premium Perks</h3>
-        <p>Ad-free, Google Drive backup, and extra emotion emojis for premium users.</p>
-      </div>
+      <div class="feature"><h3>🎁 Badge Rewards</h3><p>Earn badges and unlock new background images as gifts.</p></div>
+      <div class="feature"><h3>🌟 Premium Perks</h3><p>No ads, backup to Google Drive, and extra emotion emojis.</p></div>
     </div>
 
     <h2 style="margin-top:4rem;">📱 App Screenshots</h2>
