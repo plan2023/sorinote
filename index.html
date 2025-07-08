@@ -15,8 +15,8 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('images/site_background.png');
-      background-size: 80% auto;
+      background-image: url('images/site_background.png'); /* ✅ 두 사람이 앱 조작하는 이미지 */
+      background-size: 60% auto;    /* ✅ 이미지 작게 줄임 */
       background-repeat: no-repeat;
       background-position: center top;
       background-attachment: fixed;
@@ -27,7 +27,7 @@
       z-index: 0;
     }
 
-    /* ✅ 배경을 옅게 표현하는 오버레이 추가 */
+    /* ✅ 배경 흐림 효과용 흰색 오버레이 */
     body::before {
       content: "";
       position: fixed;
@@ -35,7 +35,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(255, 255, 255, 0.5); /* 50% 투명 흰색 오버레이 */
+      background-color: rgba(255, 255, 255, 0.5);
       z-index: -1;
     }
 
