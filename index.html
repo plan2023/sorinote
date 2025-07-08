@@ -15,8 +15,8 @@
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('images/site_background.png'); /* ✅ 이미지 경로 */
-      background-size: 80% auto; /* ✅ 이미지 크기 줄임 */
+      background-image: url('images/site_background.png');
+      background-size: 80% auto;
       background-repeat: no-repeat;
       background-position: center top;
       background-attachment: fixed;
@@ -25,6 +25,18 @@
       scroll-behavior: smooth;
       position: relative;
       z-index: 0;
+    }
+
+    /* ✅ 배경을 옅게 표현하는 오버레이 추가 */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.5); /* 50% 투명 흰색 오버레이 */
+      z-index: -1;
     }
 
     header {
