@@ -135,30 +135,8 @@
       color: #007d7b;
       font-size: 1.2rem;
     }
-    #lang-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: 1px solid #ccc;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #333;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    
+    /* 🔽 언어 선택 버튼 나열형 UI */
     #lang-select {
       position: absolute;
       top: 1rem;
@@ -189,6 +167,20 @@
       background: #00796b;
       color: #fff;
       border-color: #00796b;
+    }
+    
+    /* 애니메이션 효과 */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -312,7 +304,7 @@
     </p>
   </footer>
 
- <script>
+<script>
   const langs = ['en', 'ko', 'ja'];
   let currentLang = 'en';
 
