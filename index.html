@@ -192,7 +192,7 @@
       <button data-lang="ja">日本語</button>
     </div>
     <img src="images/icon.png" alt="SoriNote Logo">
-    <h1 class="i18n" data-ko="소리노트" data-ja="ソリノート">SoriNote</h1>
+    <h1 class="i18n" data-en="SoriNote" data-ko="소리노트" data-ja="ソリノート">SoriNote</h1>
     <p class="i18n" data-ko="감정, 아이디어, 소중한 순간을 기록하는 당신만의 감성 일기장입니다." data-ja="感情、アイデア、大切な瞬間を記録する、あなただけの感性日記です。">From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.</p>
     <div class="cta">
       <a href="https://apps.apple.com/kr/app/id6747738424" style="padding: 0; background: none; box-shadow: none; display: inline-block;">
@@ -315,6 +315,11 @@
       btn.classList.add('active');
 
       document.querySelectorAll('.i18n').forEach(el => {
+        // 초기 상태에서 data-en이 없으면 저장해 둔다
+        if (!el.hasAttribute('data-en')) {
+          el.setAttribute('data-en', el.textContent.trim());
+        }
+
         const newText = el.getAttribute('data-' + currentLang);
         if (newText) {
           el.textContent = newText;
@@ -323,5 +328,6 @@
     });
   });
 </script>
+
 </body>
 </html>
