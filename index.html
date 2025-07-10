@@ -159,11 +159,46 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+    #lang-select {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    #lang-select button {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #333;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    
+    #lang-select button:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+    
+    #lang-select button.active {
+      background: #00796b;
+      color: #fff;
+      border-color: #00796b;
+    }
   </style>
 </head>
 <body>
   <header>
-    <button id="lang-toggle">KOR</button>
+    <div id="lang-select">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="ko">KOR</button>
+      <button data-lang="ja">日本語</button>
+    </div>
     <img src="images/icon.png" alt="SoriNote Logo">
     <h1 class="i18n" data-ko="소리노트" data-ja="ソリノート">SoriNote</h1>
     <p class="i18n" data-ko="감정, 아이디어, 소중한 순간을 기록하는 당신만의 감성 일기장입니다." data-ja="感情、アイデア、大切な瞬間を記録する、あなただけの感性日記です。">From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.</p>
@@ -277,28 +312,24 @@
     </p>
   </footer>
 
-  <script>
-    const langs = ['en', 'ko', 'ja'];
-    let currentLangIndex = 0;
+ <script>
+  const langs = ['en', 'ko', 'ja'];
+  let currentLang = 'en';
 
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      currentLangIndex = (currentLangIndex + 1) % langs.length;
-      const currentLang = langs[currentLangIndex];
-
-      document.getElementById('lang-toggle').textContent = currentLang.toUpperCase();
+  document.querySelectorAll('#lang-select button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.getAttribute('data-lang');
+      document.querySelectorAll('#lang-select button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
       document.querySelectorAll('.i18n').forEach(el => {
         const newText = el.getAttribute('data-' + currentLang);
         if (newText) {
-          langs.forEach(lang => {
-            if (!el.getAttribute('data-' + lang)) {
-              el.setAttribute('data-' + lang, el.textContent);
-            }
-          });
           el.textContent = newText;
         }
       });
     });
-  </script>
+  });
+</script>
 </body>
 </html>
