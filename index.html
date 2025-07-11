@@ -11,275 +11,157 @@
   <meta property="og:url" content="https://sorinote.app" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="images/icon.png" type="image/png" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-image: url('images/site_background.png');
-      background-size: 60% auto;
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-attachment: fixed;
-      background-color: #f2fdfd;
-      color: #333;
-      scroll-behavior: smooth;
-      position: relative;
-      z-index: 0;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      z-index: -1;
-    }
-    header {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      background-color: #ffffffbb;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      position: relative;
-    }
-    header img {
-      width: 100px;
-      height: 100px;
-      animation: fadeIn 1.2s ease;
-    }
-    header h1, header p {
-      animation: fadeInDown 1s ease;
-    }
-    .cta {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .cta a {
-      background-color: #009688;
-      color: #fff;
-      padding: 0.9rem 1.6rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background 0.3s, transform 0.2s;
-    }
-    .cta a:hover {
-      background-color: #00796b;
-      transform: translateY(-2px);
-    }
-    section {
-      padding: 3rem 1rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    h2 {
-      text-align: center;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      animation: fadeIn 1s ease;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-    .feature:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
-    .feature h3 {
-      color: #007d7b;
-      font-size: 1.2rem;
-      margin-top: 0;
-    }
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      animation: fadeInUp 1s ease;
-    }
-    .screenshots img {
-      width: 180px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    footer {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #333;
-    }
-    footer a {
-      color: #333;
-      text-decoration: underline;
-      margin: 0 0.5rem;
-    }
-    .group-title {
-      margin-top: 3rem;
-      text-align: center;
-      color: #007d7b;
-      font-size: 1.2rem;
-    }
-    
-    /* 🔽 언어 선택 버튼 나열형 UI */
-    #lang-select {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      display: flex;
-      gap: 0.5rem;
-    }
-    
-    #lang-select button {
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 6px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #333;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, transform 0.2s;
-    }
-    
-    #lang-select button:hover {
-      background: #f0f0f0;
-      transform: translateY(-1px);
-    }
-    
-    #lang-select button.active {
-      background: #00796b;
-      color: #fff;
-      border-color: #00796b;
-    }
-    
-    /* 애니메이션 효과 */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
 </head>
 <body>
   <header>
-     <div id="lang-select">
+    <div id="lang-select">
       <button data-lang="en" class="active">English</button>
       <button data-lang="ko">한국어</button>
       <button data-lang="ja">日本語</button>
       <button data-lang="zh-CN">简体中文</button>
       <button data-lang="zh-TW">繁體中文</button>
     </div>
-
     <img src="images/icon.png" alt="SoriNote Logo">
     <h1 class="i18n"
-      data-en="SoriNote"
-      data-ko="소리노트"
-      data-ja="ソリノート"
-      data-zh-CN="SoriNote"
-      data-zh-TW="SoriNote">SoriNote</h1>
-
+        data-en="SoriNote"
+        data-ko="소리노트"
+        data-ja="ソリノート"
+        data-zh-CN="SoriNote"
+        data-zh-TW="SoriNote">SoriNote</h1>
     <p class="i18n"
-      data-en="From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary."
-      data-ko="감정, 아이디어, 소중한 순간을 기록하는 당신만의 감성 일기장입니다."
-      data-ja="感情、アイデア、大切な瞬間を記録する、あなただけの感性日記です。"
-      data-zh-CN="从情感到创意与珍贵时刻，SoriNote 是您专属的感性日记。"
-      data-zh-TW="從情感到創意與珍貴時刻，SoriNote 是您專屬的感性日記。">
+       data-en="From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary."
+       data-ko="감정, 아이디어, 소중한 순간을 기록하는 당신만의 감성 일기장입니다."
+       data-ja="感情、アイデア、大切な瞬間を記録する、あなただけの感性日記です。"
+       data-zh-CN="从情感到创意与珍贵时刻，SoriNote 是您专属的感性日记。"
+       data-zh-TW="從情感到創意與珍貴時刻，SoriNote 是您專屬的感性日記。">
       From emotions to ideas and meaningful moments — SoriNote is your personal, heartfelt diary.
     </p>
-    <div class="cta">
-      <a href="https://apps.apple.com/kr/app/id6747738424" style="padding: 0; background: none; box-shadow: none; display: inline-block;">
-        <img src="images/apple.png" alt="Download on App Store" style="display: block; max-height: 60px; height: auto; width: auto; border: none;" />
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.t8130.sori_note" style="padding: 0; background: none; box-shadow: none; display: inline-block;">
-        <img src="images/google.png" alt="Get it on Google Play" style="display: block; max-height: 60px; height: auto; width: auto; border: none;" />
-      </a>
-    </div>
   </header>
 
-    <section>
-      <h2 class="i18n" data-en="📌 Key Features" data-ko="📌 주요 기능" data-ja="📌 主な機能" data-zh-CN="📌 主要功能" data-zh-TW="📌 主要功能">📌 Key Features</h2>
-
-      <h4 class="i18n" data-en="✨ Capture & Reflect" data-ko="✨ 감정 기록 및 되돌아보기" data-ja="✨ 感情の記録と振り返り" data-zh-CN="✨ 情感记录与回顾" data-zh-TW="✨ 情感記錄與回顧">✨ Capture & Reflect</h4>
-      <ul>
-        <li class="i18n" data-en="💡 Idea Notes: Capture your spontaneous thoughts and creative ideas anytime."
-            data-ko="💡 아이디어 노트: 언제 어디서든 아이디어를 자유롭게 기록하세요."
-            data-ja="💡 アイデアノート: いつでもどこでも、自由にアイデアを記録しましょう。"
-            data-zh-CN="💡 灵感笔记：随时随地记录灵感和创意。"
-            data-zh-TW="💡 靈感筆記：隨時隨地記錄靈感與創意。">
-          💡 Idea Notes: Capture your spontaneous thoughts and creative ideas anytime.
-        </li>
-        <li class="i18n" data-en="📌 Important Moments: Log significant events or moments to revisit later."
-            data-ko="📌 중요한 순간: 기억하고 싶은 순간을 간편하게 남겨보세요."
-            data-ja="📌 大切な瞬間: 覚えておきたい瞬間を簡単に記録しましょう。"
-            data-zh-CN="📌 重要时刻：轻松记录值得铭记的瞬间。"
-            data-zh-TW="📌 重要時刻：輕鬆記錄值得銘記的瞬間。">
-          📌 Important Moments: Log significant events or moments to revisit later.
-        </li>
-        <li class="i18n" data-en="📅 Emotion Calendar: Visualize how you’ve felt over time in a calendar view."
-            data-ko="📅 감정 캘린더: 시간 흐름에 따른 감정 변화를 시각화해보세요."
-            data-ja="📅 感情カレンダー: 時間の流れに沿った感情の変化を可視化しましょう。"
-            data-zh-CN="📅 情绪日历：可视化你随时间变化的情绪轨迹。"
-            data-zh-TW="📅 情緒日曆：將你隨時間變化的情緒歷程視覺化。">
-          📅 Emotion Calendar: Visualize how you’ve felt over time in a calendar view.
-        </li>
-      </ul>
-
-      <h4 class="i18n" data-en="📁 Organize & Analyze" data-ko="📁 정리 및 분석" data-ja="📁 整理と分析" data-zh-CN="📁 整理与分析" data-zh-TW="📁 整理與分析">📁 Organize & Analyze</h4>
-      <ul>
-        <li class="i18n" data-en="🏷️ Tag Folder Collection: Group notes by custom tags like folders for easy browsing."
-            data-ko="🏷️ 태그 폴더: 노트를 폴더처럼 태그별로 묶어 정리하세요."
-            data-ja="🏷️ タグフォルダー: タグでノートをフォルダーのようにまとめて整理しましょう。"
-            data-zh-CN="🏷️ 标签文件夹：将笔记按标签分类，就像文件夹一样整理。"
-            data-zh-TW="🏷️ 標籤資料夾：將筆記依標籤分類，像資料夾般整理。">
-          🏷️ Tag Folder Collection: Group notes by custom tags like folders for easy browsing.
-        </li>
-        <li class="i18n" data-en="📈 Emotion & Tag Statistics: Track emotional and tag-based trends with charts."
-            data-ko="📈 감정 및 태그 통계: 감정과 태그의 통계를 한눈에 확인해보세요."
-            data-ja="📈 感情とタグの統計: 感情とタグの統計を一目で確認しましょう。"
-            data-zh-CN="📈 情绪与标签统计：一目了然查看情绪和标签趋势。"
-            data-zh-TW="📈 情緒與標籤統計：一目瞭然檢視情緒與標籤趨勢。">
-          📈 Emotion & Tag Statistics: Track emotional and tag-based trends with charts.
-        </li>
-      </ul>
-      <h2 class="i18n" data-en="📱 App Screenshots" data-ko="📱 앱 스크린샷" data-ja="📱 アプリのスクリーンショット" data-zh-CN="📱 应用截图" data-zh-TW="📱 應用程式截圖">📱 App Screenshots</h2>
-    <div class="screenshots">
-      <img src="images/001.jpeg" alt="Home Screen">
-      <img src="images/002.jpeg" alt="Diary Detail">
-      <img src="images/003.jpeg" alt="Voice Playback">
-      <img src="images/004.jpeg" alt="Voice Playback 2">
-      <img src="images/005.jpeg" alt="Emotion Selection">
-      <img src="images/006.jpeg" alt="Diary Writing">
-      <img src="images/007.jpeg" alt="Background Selection">
-      <img src="images/008.jpeg" alt="Tag Folders">
-      <img src="images/009.jpeg" alt="Emotion Statistics">
-      <img src="images/010.jpeg" alt="Badge Overview">
+  <section>
+    <h2 class="i18n" data-en="📌 Key Features" data-ko="📌 주요 기능" data-ja="📌 主な機能" data-zh-CN="📌 主要功能" data-zh-TW="📌 主要功能">📌 Key Features</h2>
+  
+    <h4 class="group-title i18n" data-en="✨ Capture & Reflect" data-ko="✨ 감정 기록 및 되돌아보기" data-ja="✨ 感情の記録と振り返り" data-zh-CN="✨ 情感记录与回顾" data-zh-TW="✨ 情感記錄與回顧">✨ Capture & Reflect</h4>
+    <div class="features">
+      <div class="feature">
+        <h3 class="i18n" data-en="💡 Idea Notes" data-ko="💡 아이디어 노트" data-ja="💡 アイデアノート" data-zh-CN="💡 灵感笔记" data-zh-TW="💡 靈感筆記">💡 Idea Notes</h3>
+        <p class="i18n" data-en="Capture your spontaneous thoughts and creative ideas anytime." data-ko="언제 어디서든 아이디어를 자유롭게 기록하세요." data-ja="いつでもどこでも、自由にアイデアを記録しましょう。" data-zh-CN="随时随地记录灵感和创意。" data-zh-TW="隨時隨地記錄靈感與創意。">Capture your spontaneous thoughts and creative ideas anytime.</p>
+      </div>
+      <div class="feature">
+        <h3 class="i18n" data-en="📌 Important Moments" data-ko="📌 중요한 순간" data-ja="📌 大切な瞬間" data-zh-CN="📌 重要时刻" data-zh-TW="📌 重要時刻">📌 Important Moments</h3>
+        <p class="i18n" data-en="Log significant events or moments to revisit later." data-ko="기억하고 싶은 순간을 간편하게 남겨보세요." data-ja="覚えておきたい瞬間を簡単に記録しましょう。" data-zh-CN="轻松记录值得铭记的瞬间。" data-zh-TW="輕鬆記錄值得銘記的瞬間。">Log significant events or moments to revisit later.</p>
+      </div>
+      <div class="feature">
+        <h3 class="i18n" data-en="📅 Emotion Calendar" data-ko="📅 감정 캘린더" data-ja="📅 感情カレンダー" data-zh-CN="📅 情绪日历" data-zh-TW="📅 情緒日曆">📅 Emotion Calendar</h3>
+        <p class="i18n" data-en="Visualize how you’ve felt over time in a calendar view." data-ko="시간 흐름에 따른 감정 변화를 시각화해보세요." data-ja="時間の流れに沿った感情の変化を可視化しましょう。" data-zh-CN="可视化你随时间变化的情绪轨迹。" data-zh-TW="將你隨時間變化的情緒歷程視覺化。">Visualize how you’ve felt over time in a calendar view.</p>
+      </div>
+      <div class="feature">
+        <h3 class="i18n" data-en="🎤 Voice Recording" data-ko="🎤 음성 녹음" data-ja="🎤 音声録音" data-zh-CN="🎤 语音记录" data-zh-TW="🎤 語音記錄">🎤 Voice Recording</h3>
+        <p class="i18n" data-en="Record your thoughts and emotions with a tap." data-ko="음성으로 감정을 빠르게 기록할 수 있어요." data-ja="音声で素早く感情を記録できます。" data-zh-CN="用语音快速记录情绪。" data-zh-TW="用語音快速記錄情緒。">Record your thoughts and emotions with a tap.</p>
+      </div>
+      <div class="feature">
+        <h3 class="i18n" data-en="⏰ Reminder Notifications" data-ko="⏰ 알림 설정" data-ja="⏰ リマインダー設定" data-zh-CN="⏰ 提醒设置" data-zh-TW="⏰ 提醒設定">⏰ Reminder Notifications</h3>
+        <p class="i18n" data-en="Set daily reminders to keep your diary habit alive." data-ko="일기 습관을 위한 알림을 설정해보세요." data-ja="日記を続けるためのリマインダーを設定しましょう。" data-zh-CN="设置提醒，保持写日记的好习惯。" data-zh-TW="設置提醒，培養寫日記的好習慣。">Set daily reminders to keep your diary habit alive.</p>
+      </div>
     </div>
-  </section>
+    <img src="images/001.jpeg" alt="Home Screen">
+    <img src="images/002.jpeg" alt="Diary Detail">
+    <img src="images/003.jpeg" alt="Voice Playback">
+    <img src="images/004.jpeg" alt="Voice Playback 2">
+    <img src="images/005.jpeg" alt="Emotion Selection">
+    <img src="images/006.jpeg" alt="Diary Writing">
+    <img src="images/007.jpeg" alt="Background Selection">
+    <img src="images/008.jpeg" alt="Tag Folders">
+    <img src="images/009.jpeg" alt="Emotion Statistics">
+    <img src="images/010.jpeg" alt="Badge Overview">
+  </div>
+<h4 class="group-title i18n"
+     data-en="📁 Organize & Analyze"
+     data-ko="📁 정리 및 분석"
+     data-ja="📁 整理と分析"
+     data-zh-CN="📁 整理与分析"
+     data-zh-TW="📁 整理與分析">📁 Organize & Analyze</h4>
+<div class="features">
+  <div class="feature">
+    <h3 class="i18n" data-en="🏷️ Tag Folder Collection" data-ko="🏷️ 태그 폴더" data-ja="🏷️ タグフォルダー" data-zh-CN="🏷️ 标签文件夹" data-zh-TW="🏷️ 標籤資料夾">🏷️ Tag Folder Collection</h3>
+    <p class="i18n" data-en="Group notes by custom tags like folders for easy browsing."
+       data-ko="노트를 폴더처럼 태그별로 묶어 정리하세요."
+       data-ja="タグでノートをフォルダーのようにまとめて整理しましょう。"
+       data-zh-CN="将笔记按标签分类，就像文件夹一样整理。"
+       data-zh-TW="將筆記依標籤分類，像資料夾般整理。">
+       Group notes by custom tags like folders for easy browsing.
+    </p>
+  </div>
+  <div class="feature">
+    <h3 class="i18n" data-en="📈 Emotion & Tag Statistics" data-ko="📈 감정 및 태그 통계" data-ja="📈 感情とタグの統計" data-zh-CN="📈 情绪与标签统计" data-zh-TW="📈 情緒與標籤統計">📈 Emotion & Tag Statistics</h3>
+    <p class="i18n" data-en="Track emotional and tag-based trends with charts."
+       data-ko="감정과 태그의 통계를 한눈에 확인해보세요."
+       data-ja="感情とタグの統計を一目で確認しましょう。"
+       data-zh-CN="一目了然查看情绪和标签趋势。"
+       data-zh-TW="一目瞭然檢視情緒與標籤趨勢。">
+       Track emotional and tag-based trends with charts.
+    </p>
+  </div>
+</div>
 
+<h4 class="group-title i18n"
+     data-en="🔐 Backup & Export"
+     data-ko="🔐 백업 및 내보내기"
+     data-ja="🔐 バックアップとエクスポート"
+     data-zh-CN="🔐 备份与导出"
+     data-zh-TW="🔐 備份與匯出">🔐 Backup & Export</h4>
+<div class="features">
+  <div class="feature">
+    <h3 class="i18n" data-en="📤 Export & Share" data-ko="📤 내보내기 및 공유" data-ja="📤 エクスポートと共有" data-zh-CN="📤 导出与分享" data-zh-TW="📤 匯出與分享">📤 Export & Share</h3>
+    <p class="i18n" data-en="Share your diary or export it as a CSV for backup."
+       data-ko="노트를 CSV로 내보내고 공유하세요."
+       data-ja="ノートをCSV形式でエクスポートして共有しましょう。"
+       data-zh-CN="将日记导出为 CSV 文件并轻松分享。"
+       data-zh-TW="將日記匯出為 CSV 檔案並輕鬆分享。">
+       Share your diary or export it as a CSV for backup.
+    </p>
+  </div>
+  <div class="feature">
+    <h3 class="i18n" data-en="🔒 Secure Backup & Restore" data-ko="🔒 보안 백업" data-ja="🔒 安全なバックアップ" data-zh-CN="🔒 安全备份" data-zh-TW="🔒 安全備份">🔒 Secure Backup & Restore</h3>
+    <p class="i18n" data-en="All data is encrypted and stored in your Google Drive securely."
+       data-ko="Google Drive에 안전하게 암호화 저장됩니다."
+       data-ja="Google Driveに安全に暗号化して保存されます。"
+       data-zh-CN="安全加密并存储在您的 Google Drive 中。"
+       data-zh-TW="安全加密並儲存在您的 Google Drive 中。">
+       All data is encrypted and stored in your Google Drive securely.
+    </p>
+  </div>
+</div>
+
+<h4 class="group-title i18n"
+     data-en="🌟 Premium & Rewards"
+     data-ko="🌟 프리미엄과 보상"
+     data-ja="🌟 プレミアムと報酬"
+     data-zh-CN="🌟 高级功能与奖励"
+     data-zh-TW="🌟 進階功能與獎勵">🌟 Premium & Rewards</h4>
+<div class="features">
+  <div class="feature">
+    <h3 class="i18n" data-en="🎁 Badge Rewards" data-ko="🎁 배지 보상" data-ja="🎁 バッジ報酬" data-zh-CN="🎁 勋章奖励" data-zh-TW="🎁 勳章獎勵">🎁 Badge Rewards</h3>
+    <p class="i18n" data-en="Earn badges and unlock new background images as gifts."
+       data-ko="배지를 획득하고 배경 이미지를 해금하세요."
+       data-ja="バッジを獲得して背景画像をアンロックしましょう。"
+       data-zh-CN="收集勋章，解锁精美背景图片。"
+       data-zh-TW="收集勳章，解鎖精美背景圖片。">
+       Earn badges and unlock new background images as gifts.
+    </p>
+  </div>
+  <div class="feature">
+    <h3 class="i18n" data-en="🌟 Premium Perks" data-ko="🌟 프리미엄 혜택" data-ja="🌟 プレミアム特典" data-zh-CN="🌟 高级特权" data-zh-TW="🌟 進階特權">🌟 Premium Perks</h3>
+    <p class="i18n" data-en="No ads, backup to Google Drive, and extra emotion emojis."
+       data-ko="광고 제거, 백업 기능, 추가 이모지 제공."
+       data-ja="広告なし、バックアップ機能、追加の感情アイコンが利用可能。"
+       data-zh-CN="无广告、备份功能、额外表情图标。"
+       data-zh-TW="無廣告、備份功能、額外表情圖示。">
+       No ads, backup to Google Drive, and extra emotion emojis.
+    </p>
+  </div>
+</div>
+</section>
   <footer>
     <p class="i18n"
        data-en="© 2025 Hyeokseo Bak. All rights reserved. 'SoriNote' is a registered trademark."
@@ -315,7 +197,6 @@
          data-zh-TW="聯絡我們">Contact</a>
     </p>
   </footer>
-
   <script>
     const langs = ['en', 'ko', 'ja', 'zh-CN', 'zh-TW'];
     let currentLang = 'en';
@@ -325,6 +206,9 @@
         currentLang = btn.getAttribute('data-lang');
         document.querySelectorAll('#lang-select button').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        document.documentElement.setAttribute('lang', currentLang);
+        localStorage.setItem('lang', currentLang);
+        document.documentElement.setAttribute('lang', currentLang);
 
         document.querySelectorAll('.i18n').forEach(el => {
           if (!el.hasAttribute('data-en')) {
@@ -338,7 +222,25 @@
         });
       });
     });
+      // 자동 언어 감지 및 초기 설정
+    const browserLang = navigator.language || navigator.userLanguage;
+    const langMap = {
+      'en': 'en',
+      'ko': 'ko',
+      'ja': 'ja',
+      'zh': 'zh-CN', // 기본값은 간체
+      'zh-CN': 'zh-CN',
+      'zh-TW': 'zh-TW'
+    };
+    const storedLang = localStorage.getItem('lang');
+    const matchedLang = storedLang && langs.includes(storedLang)
+      ? storedLang
+      : langs.includes(langMap[browserLang]) ? langMap[browserLang] : 'en';
+    const initialBtn = document.querySelector(`#lang-select button[data-lang="${matchedLang}"]`);
+    if (initialBtn) {
+      initialBtn.click();
+      document.documentElement.setAttribute('lang', matchedLang);
+    }
   </script>
-
 </body>
 </html>
