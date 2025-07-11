@@ -118,14 +118,24 @@
     margin-top: 0;
   }
 
+   .screenshots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease;
+  text-align: center; /* ✅ 추가 */
+}
+
   .screenshots img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    object-fit: cover;
-  }
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: block;      /* ✅ 추가 */
+  margin: 0 auto;       /* ✅ 추가 */
+}
+
    
   footer {
     background-color: rgba(255, 255, 255, 0.85);
