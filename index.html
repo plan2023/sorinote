@@ -179,17 +179,22 @@
     transition: background 0.3s, transform 0.2s;
   }
 
-  #lang-select button:hover {
-    background: #f0f0f0;
-    transform: translateY(-1px);
-  }
+ #lang-select {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
 
-  #lang-select button.active {
-    background: #00796b;
-    color: #fff;
-    border-color: #00796b;
-  }
-
+#lang-dropdown {
+  padding: 6px 10px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -239,12 +244,15 @@
 <body>
   <header>
     <div id="lang-select">
-      <button data-lang="en" class="active">English</button>
-      <button data-lang="ko">한국어</button>
-      <button data-lang="ja">日本語</button>
-      <button data-lang="zh-CN">简体中文</button>
-      <button data-lang="zh-TW">繁體中文</button>
-    </div>
+  <select id="lang-dropdown">
+    <option value="en">🌐 English</option>
+    <option value="ko">🇰🇷 한국어</option>
+    <option value="ja">🇯🇵 日本語</option>
+    <option value="zh-CN">🇨🇳 简体中文</option>
+    <option value="zh-TW">🇹🇼 繁體中文</option>
+  </select>
+</div>
+
     <img src="images/icon.png" alt="SoriNote Logo">
     <h1 class="i18n"
         data-en="SoriNote"
@@ -442,27 +450,22 @@
     const langs = ['en', 'ko', 'ja', 'zh-CN', 'zh-TW'];
     let currentLang = 'en';
 
-    document.querySelectorAll('#lang-select button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentLang = btn.getAttribute('data-lang');
-        document.querySelectorAll('#lang-select button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.documentElement.setAttribute('lang', currentLang);
-        localStorage.setItem('lang', currentLang);
-        document.documentElement.setAttribute('lang', currentLang);
+    document.getElementById('lang-dropdown').addEventListener('change', (e) => {
+  const selectedLang = e.target.value;
+  currentLang = selectedLang;
+  localStorage.setItem('lang', currentLang);
+  document.documentElement.setAttribute('lang', currentLang);
 
-        document.querySelectorAll('.i18n').forEach(el => {
-          if (!el.hasAttribute('data-en')) {
-            el.setAttribute('data-en', el.textContent.trim());
-          }
-
-          const newText = el.getAttribute('data-' + currentLang);
-          if (newText) {
-            el.textContent = newText;
-          }
-        });
-      });
-    });
+  document.querySelectorAll('.i18n').forEach(el => {
+    if (!el.hasAttribute('data-en')) {
+      el.setAttribute('data-en', el.textContent.trim());
+    }
+    const newText = el.getAttribute('data-' + currentLang);
+    if (newText) {
+      el.textContent = newText;
+    }
+  });
+});
       // 자동 언어 감지 및 초기 설정
     const browserLang = navigator.language || navigator.userLanguage;
     const langMap = {
