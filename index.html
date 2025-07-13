@@ -412,79 +412,87 @@
   </section>
 </section>
   <footer>
-    <p class="i18n"
-       data-en="© 2025 Hyeokseo Bak. All rights reserved. 'SoriNote' is a registered trademark."
-       data-ko="© 2025 Hyeokseo Bak. 모든 권리 보유. 'SoriNote'는 등록 상표입니다."
-       data-ja="© 2025 Hyeokseo Bak. All rights reserved. 「SoriNote」は登録商標です。"
-       data-zh-CN="© 2025 Hyeokseo Bak. 版权所有。“SoriNote”为注册商标。"
-       data-zh-TW="© 2025 Hyeokseo Bak. 版權所有。「SoriNote」為註冊商標。">
-      © 2025 Hyeokseo Bak. All rights reserved. 'SoriNote' is a registered trademark.
-    </p>
-    <p>
-      <a href="privacy/index.html"
-         class="i18n"
-         data-en="Privacy Policy"
-         data-ko="개인정보처리방침"
-         data-ja="プライバシーポリシー"
-         data-zh-CN="隐私政策"
-         data-zh-TW="隱私政策">Privacy Policy</a>
-      ·
-      <a href="terms/index.html"
-         class="i18n"
-         data-en="Terms"
-         data-ko="이용약관"
-         data-ja="利用規約"
-         data-zh-CN="使用条款"
-         data-zh-TW="使用條款">Terms</a>
-      ·
-      <a href="mailto:pdman21c@gmail.com"
-         class="i18n"
-         data-en="Contact"
-         data-ko="문의하기"
-         data-ja="お問い合わせ"
-         data-zh-CN="联系我们"
-         data-zh-TW="聯絡我們">Contact</a>
-    </p>
-  </footer>
-  <script>
-    const langs = ['en', 'ko', 'ja', 'zh-CN', 'zh-TW'];
-    let currentLang = 'en';
+  <p class="i18n"
+     data-en="© 2025 Hyeokseo Bak. All rights reserved. 'SoriNote' is a registered trademark."
+     data-ko="© 2025 Hyeokseo Bak. 모든 권리 보유. 'SoriNote'는 등록 상표입니다."
+     data-ja="© 2025 Hyeokseo Bak. All rights reserved. 「SoriNote」は登録商標です。"
+     data-zh-CN="© 2025 Hyeokseo Bak. 版权所有。“SoriNote”为注册商标。"
+     data-zh-TW="© 2025 Hyeokseo Bak. 版權所有。「SoriNote」為註冊商標。">
+    © 2025 Hyeokseo Bak. All rights reserved. 'SoriNote' is a registered trademark.
+  </p>
+  <p>
+    <a id="privacy-link" href="privacy-policy-en.html"
+       class="i18n"
+       data-en="Privacy Policy"
+       data-ko="개인정보처리방침"
+       data-ja="プライバシーポリシー"
+       data-zh-CN="隐私政策"
+       data-zh-TW="隱私政策">Privacy Policy</a>
+    ·
+    <a id="terms-link" href="terms-policy-en.html"
+       class="i18n"
+       data-en="Terms"
+       data-ko="이용약관"
+       data-ja="利用規約"
+       data-zh-CN="使用条款"
+       data-zh-TW="使用條款">Terms</a>
+    ·
+    <a href="mailto:pdman21c@gmail.com"
+       class="i18n"
+       data-en="Contact"
+       data-ko="문의하기"
+       data-ja="お問い合わせ"
+       data-zh-CN="联系我们"
+       data-zh-TW="聯絡我們">Contact</a>
+  </p>
+</footer>
 
-    document.getElementById('lang-dropdown').addEventListener('change', (e) => {
-  const selectedLang = e.target.value;
-  currentLang = selectedLang;
-  localStorage.setItem('lang', currentLang);
-  document.documentElement.setAttribute('lang', currentLang);
+ <script>
+  const langs = ['en', 'ko', 'ja', 'zh-CN', 'zh-TW'];
+  let currentLang = 'en';
 
-  document.querySelectorAll('.i18n').forEach(el => {
-    if (!el.hasAttribute('data-en')) {
-      el.setAttribute('data-en', el.textContent.trim());
-    }
-    const newText = el.getAttribute('data-' + currentLang);
-    if (newText) {
-      el.textContent = newText;
-    }
+  const updateLanguage = (lang) => {
+    currentLang = lang;
+    localStorage.setItem('lang', currentLang);
+    document.documentElement.setAttribute('lang', currentLang);
+
+    document.querySelectorAll('.i18n').forEach(el => {
+      if (!el.hasAttribute('data-en')) {
+        el.setAttribute('data-en', el.textContent.trim());
+      }
+      const newText = el.getAttribute('data-' + currentLang);
+      if (newText) {
+        el.textContent = newText;
+      }
+    });
+
+    // ✅ 다국어에 맞는 정책 링크 업데이트
+    document.getElementById('privacy-link').setAttribute('href', `privacy-policy-${currentLang}.html`);
+    document.getElementById('terms-link').setAttribute('href', `terms-policy-${currentLang}.html`);
+  };
+
+  document.getElementById('lang-dropdown').addEventListener('change', (e) => {
+    const selectedLang = e.target.value;
+    updateLanguage(selectedLang);
   });
-});
-      // 자동 언어 감지 및 초기 설정
-    const browserLang = navigator.language || navigator.userLanguage;
-    const langMap = {
-      'en': 'en',
-      'ko': 'ko',
-      'ja': 'ja',
-      'zh': 'zh-CN', // 기본값은 간체
-      'zh-CN': 'zh-CN',
-      'zh-TW': 'zh-TW'
-    };
-    const storedLang = localStorage.getItem('lang');
-    const matchedLang = storedLang && langs.includes(storedLang)
-      ? storedLang
-      : langs.includes(langMap[browserLang]) ? langMap[browserLang] : 'en';
-    const initialBtn = document.querySelector(`#lang-select button[data-lang="${matchedLang}"]`);
-    if (initialBtn) {
-      initialBtn.click();
-      document.documentElement.setAttribute('lang', matchedLang);
-    }
-  </script>
+
+  // ✅ 초기 언어 설정
+  const browserLang = navigator.language || navigator.userLanguage;
+  const langMap = {
+    'en': 'en',
+    'ko': 'ko',
+    'ja': 'ja',
+    'zh': 'zh-CN',
+    'zh-CN': 'zh-CN',
+    'zh-TW': 'zh-TW'
+  };
+  const storedLang = localStorage.getItem('lang');
+  const matchedLang = storedLang && langs.includes(storedLang)
+    ? storedLang
+    : langs.includes(langMap[browserLang]) ? langMap[browserLang] : 'en';
+
+  updateLanguage(matchedLang);
+</script>
+
 </body>
 </html>
