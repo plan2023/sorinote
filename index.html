@@ -466,17 +466,15 @@
       }
     });
 
-    // ✅ 다국어에 맞는 정책 링크 업데이트
-    document.getElementById('privacy-link').setAttribute('href', `privacy-policy-${currentLang}.html`);
-    document.getElementById('terms-link').setAttribute('href', `terms-policy-${currentLang}.html`);
+    // ✅ 언어에 따라 경로 반영
+    document.getElementById('privacy-link').setAttribute('href', `/privacy/privacy-policy-${currentLang}.html`);
+    document.getElementById('terms-link').setAttribute('href', `/terms/terms-policy-${currentLang}.html`);
   };
 
   document.getElementById('lang-dropdown').addEventListener('change', (e) => {
-    const selectedLang = e.target.value;
-    updateLanguage(selectedLang);
+    updateLanguage(e.target.value);
   });
 
-  // ✅ 초기 언어 설정
   const browserLang = navigator.language || navigator.userLanguage;
   const langMap = {
     'en': 'en',
