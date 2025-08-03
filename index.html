@@ -397,18 +397,7 @@
     data-ja="📱 アプリのスクリーンショット"
     data-zh-CN="📱 应用截图"
     data-zh-TW="📱 應用程式截圖">📱 App Screenshots</h2>
-    <div class="screenshots">
-      <img src="images/001.jpeg" alt="Home Screen">
-      <img src="images/002.jpeg" alt="Diary Detail">
-      <img src="images/003.jpeg" alt="Voice Playback">
-      <img src="images/004.jpeg" alt="Voice Playback 2">
-      <img src="images/005.jpeg" alt="Emotion Selection">
-      <img src="images/006.jpeg" alt="Diary Writing">
-      <img src="images/007.jpeg" alt="Background Selection">
-      <img src="images/008.jpeg" alt="Tag Folders">
-<!--       <img src="images/009.jpeg" alt="Emotion Statistics">
-      <img src="images/010.jpeg" alt="Badge Overview"> -->
-    </div>
+    <div class="screenshots"></div>
   </section>
 </section>
   <footer>
@@ -461,15 +450,34 @@
       }
     });
 
-    // ✅ 언어에 따라 경로 반영
+    // ✅ 언어에 따라 정책 링크 반영
     document.getElementById('privacy-link').setAttribute('href', `/privacy/privacy-policy-${currentLang}.html`);
     document.getElementById('terms-link').setAttribute('href', `/terms/terms-policy-${currentLang}.html`);
+
+    // ✅ 언어에 따라 스크린샷 이미지 변경
+    updateScreenshots(currentLang);
   };
 
+  // ✅ 스크린샷 동적 삽입 함수
+  const updateScreenshots = (lang) => {
+    const container = document.querySelector('.screenshots');
+    container.innerHTML = ''; // 기존 이미지 제거
+
+    const prefix = lang === 'ko' ? 'kr' : 'en';
+    for (let i = 1; i <= 4; i++) {
+      const img = document.createElement('img');
+      img.src = `images/${prefix}_0${i}.jpg`;
+      img.alt = `Screenshot ${i}`;
+      container.appendChild(img);
+    }
+  };
+
+  // ✅ 언어 선택 이벤트 리스너
   document.getElementById('lang-dropdown').addEventListener('change', (e) => {
     updateLanguage(e.target.value);
   });
 
+  // ✅ 초기 언어 결정 및 적용
   const browserLang = navigator.language || navigator.userLanguage;
   const langMap = {
     'en': 'en',
